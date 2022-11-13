@@ -11,15 +11,10 @@ jobs:
     strategy:
       matrix:
         node-version: [12.19.0]
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
 
     steps:
-      - name: Set node version
-        uses: actions/setup-node@v1
-        with:
-            always-auth: true
-            node-version: 12.19.0
-            registry-url: 'https://npm.pkg.github.com'
-
       - name: Clone Source
         uses: actions/checkout@v2
         with:
@@ -36,8 +31,6 @@ jobs:
 
       - name: Publish Package
         run: yarn publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
 
       ####### Job Fail Notification  #######
       - env:

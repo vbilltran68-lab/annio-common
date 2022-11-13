@@ -11,8 +11,6 @@ jobs:
     strategy:
       matrix:
         node-version: [12.19.0]
-    env:
-      NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
 
     steps:
       - name: Clone Source
@@ -31,6 +29,8 @@ jobs:
 
       - name: Publish Package
         run: yarn publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
 
       ####### Job Fail Notification  #######
       - env:

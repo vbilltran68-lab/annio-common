@@ -32,6 +32,12 @@ jobs:
       - name: Publish Package
         run: yarn publish
 
+      - name: match-tag-to-package-version
+        id: match-tag-to-package-version
+        uses: geritol/match-tag-to-package-version@0.2.0
+        with:
+          TAG_PREFIX: v
+
       ####### Job Fail Notification  #######
       - env:
           SLACK_TITLE: Release Package Failure

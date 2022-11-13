@@ -16,6 +16,9 @@
     "type": "git",
     "url": "https://github.com/annio-lab/annio-core.git"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [],
   "author": {
     "name": "Bill Tran",

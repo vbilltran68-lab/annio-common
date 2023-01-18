@@ -11,5 +11,8 @@
     "include": ["src"],
     "incremental": true,
     "skipLibCheck": true,
-    "exclude": ["node_modules", "**/__tests__/*"]
+    "exclude": ["node_modules", "**/__tests__/*"],
+    "paths": {
+      "@utils/*": ["src/utilities/*"],
+    }
   }

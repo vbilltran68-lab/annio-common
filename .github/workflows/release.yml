@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - master
+  pull_request:
+    branches:
+      - master
 
 jobs:
   build:
@@ -28,6 +31,14 @@ jobs:
 
       - name: Build Source
         run: yarn build
+
+      - name: Testing
+        run: yarn test:ci
+
+      - name: Generating coverage badges
+        uses: jpb06/jest-badges-action@latest
+        with:
+          branches: master
 
       - name: Publish Package
         run: yarn publish
